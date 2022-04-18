@@ -1,0 +1,25 @@
+package com.dscfgos.spring_concepts.dependency_injection;
+
+import com.dscfgos.spring_concepts.dependency_injection.utils.BaseReport;
+import com.dscfgos.spring_concepts.dependency_injection.utils.DIInjection;
+import com.dscfgos.spring_concepts.dependency_injection.utils.DataGenerator;
+
+public class InterfaceDIService implements DIInjection {
+    private BaseReport report;
+    private DataGenerator dataGenerator;
+
+    public void generateReport() {
+        this.report.printData(this.dataGenerator.generateFakeData());
+    }
+
+    @Override
+    public void setReport(BaseReport report) {
+        this.report = report;
+    }
+
+    @Override
+    public void setDataGenerator(DataGenerator dataGenerator) {
+        this.dataGenerator = dataGenerator;
+    }
+
+}
